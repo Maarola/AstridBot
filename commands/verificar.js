@@ -7,20 +7,20 @@ module.exports = {
 
   async execute(interaction) {
     if (!interaction.member.permissions.has("Administrator")) {
-      return interaction.reply({ content: "Você não tem permissão!", ephemeral: true });
+      return interaction.reply({ content: "Você não tem permissão!", flags: 65 });
     }
-    
+
     const embed = new EmbedBuilder()
       .setTitle('🕵️ | Verificar')
       .setDescription('Clique no botão para desbloquear os canais')
-      .setColor(0x2ecc71); // cor verde
+      .setColor(0x2ecc71);
 
     const row = new ActionRowBuilder()
       .addComponents(
         new ButtonBuilder()
           .setCustomId('botao_verificar')
-          .setEmoji('🪪') // o emoji do botão
-          .setStyle(ButtonStyle.Success) // botão verde
+          .setEmoji('🪪')
+          .setStyle(ButtonStyle.Success)
       );
 
     await interaction.reply({
